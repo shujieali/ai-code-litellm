@@ -1,0 +1,18 @@
+# LiteLLM Proxy Configuration Base
+# Edit this file for general LiteLLM settings
+# Models are loaded from models.yaml via merge_config.py
+
+general_settings:
+  use_redis_transaction_buffer: true
+  database_url: "postgresql://litellm_user:litellm_password@postgres:5432/litellm_db"
+  redis_url: "redis://redis:6379"
+  master_key: "os.environ/LITELLM_MASTER_KEY"
+
+litellm_settings:
+  cache: true
+  cache_params:
+    type: redis
+    host: redis
+
+# Model list is loaded from models.yaml
+# Run: make update-config to fetch models and merge into litellm_config.yaml
