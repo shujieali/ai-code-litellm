@@ -3,10 +3,13 @@
 # Models are loaded from models.yaml via merge_config.py
 
 general_settings:
+  forward_client_headers_to_llm_api: false  # Required: forwards OAuth token to Anthropic
   use_redis_transaction_buffer: true
-  database_url: "postgresql://litellm_user:litellm_password@postgres:5432/litellm_db"
-  redis_url: "redis://redis:6379"
-  master_key: "os.environ/LITELLM_MASTER_KEY"
+  database_url: postgresql://litellm_user:litellm_password@postgres:5432/litellm_db
+  redis_url: redis://redis:6379
+  master_key: os.environ/LITELLM_MASTER_KEY
+  store_model_in_db: true
+  store_prompts_in_spend_logs: false
 
 litellm_settings:
   cache: true
